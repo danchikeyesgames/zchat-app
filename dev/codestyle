@@ -1,0 +1,46 @@
+##### zchat codestyle
+##### Copyright (c) with free license. See current license file for details.
+##### codestyle guide
+
+Dev Coding Style
+==================
+
+All modules of zchat application is written in C++. The project is being developed using Google Codestyle with C++11(14) version.
+This file contains a summary of the google codestyle guide with some adjustments for my convenience.
+
+
+## Header Files
+
+The implementation file has the extension .cpp, every it file should have an associated .hpp file. Non-headers files that are 
+included to program should end in .inc. Inline functions and templates must have declaration and difinition in this header file.
+All headers files should have #define guards to prevent multiple inclusion.
+
+```C++
+#ifndef _FOO_BAR_BAZ_H_ // path of file
+#define _FOO_BAR_BAZ_H_
+
+...
+
+#endif  // _FOO_BAR_BAZ_H_
+```
+
+File with extension .cpp should contain inclusions functions/consts/variables from elsewhere if this file use it in self realizetion
+even if his header contain it too. Avoid using forward declarations where possible. Include headers in the following order: Related 
+header, C system headers, C++ standard library headers, other libraries' headers, your project's headers.
+
+## Namespaces and variables
+
+Namespaces should have unique names based on the project name. Do not use using-directives. Do not use inline namespaces. Place 
+a function's variables in the narrowest scope possible, and initialize variables in the declaration. The name of the variables should
+begin with a small letter if the name is compoud that to separate each word should highlighted a capital letter.
+
+```C++
+// example
+int elemNumCount;
+short channelDirectOut;
+```
+
+Also the basic indentation is 4 space wide, lines should be at most 150 characters wide. If a line would be longer than the limit,
+the line should be wrapped and the wrapped portion should be aligned with the parentheses or brackets containing the wrap.
+
+## Classes
