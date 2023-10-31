@@ -11,7 +11,7 @@ This file contains a summary of the google codestyle guide with some adjustments
 
 ## Header Files
 
-The implementation file has the extension .cpp, every it file should have an associated .hpp file. Non-headers files that are 
+The implementation file has the extension `.cpp`, every it file should have an associated `.hpp` file. Non-headers files that are 
 included to program should end in .inc. Inline functions and templates must have declaration and difinition in this header file.
 All headers files should have #define guards to prevent multiple inclusion.
 
@@ -44,3 +44,23 @@ Also the basic indentation is 4 space wide, lines should be at most 150 characte
 the line should be wrapped and the wrapped portion should be aligned with the parentheses or brackets containing the wrap.
 
 ## Classes
+
+Use the `explicit` keyword for conversion operators and single-argument constructors. Use a `struct` only for passive objects that carry
+data; everything else is a `class`. Composition is often more appropriate than inheritance. When using inheritance, make it `public`.
+Make classes' data members `private`, unless they are constants. Group similar declarations together, placing public parts earlier. The 
+name of classes should begin with a big letter and other rules as for variables. If constructor of the class little then may place it into
+header. 
+
+```C++
+
+class MyClass {
+    private:
+        int one;
+        int two;
+    public:
+        MyClass(int a) : one(a) {};
+        int GetOneElem();
+        auto GetTwoElem() -> int;
+};
+
+```
